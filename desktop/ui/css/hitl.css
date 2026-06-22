@@ -1,0 +1,220 @@
+.hitl-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 2500;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1.25rem;
+  background: rgba(30, 32, 38, 0.45);
+  backdrop-filter: blur(6px);
+}
+
+.hitl-card {
+  width: min(480px, 100%);
+  padding: 1.5rem 1.5rem 1.2rem;
+  background: var(--bg-card);
+  border-radius: calc(var(--radius) + 6px);
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.18), 0 0 0 1px rgba(0, 0, 0, 0.04);
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.hitl-title {
+  margin: 0;
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--text);
+  letter-spacing: 0.02em;
+}
+
+.hitl-message {
+  margin: 0;
+  font-size: 0.9rem;
+  line-height: 1.6;
+  color: var(--text-muted);
+  white-space: pre-wrap;
+}
+
+.hitl-options {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.hitl-option {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.65rem;
+  padding: 0.7rem 0.85rem;
+  border: 1.5px solid var(--border);
+  border-radius: var(--radius);
+  cursor: pointer;
+  transition: border-color 0.15s, background 0.15s;
+}
+
+.hitl-option:hover {
+  border-color: #43a047;
+  background: #f6fdf6;
+}
+
+.hitl-option.selected {
+  border-color: #43a047;
+  background: #f0faf0;
+}
+
+.hitl-option input[type="radio"],
+.hitl-option input[type="checkbox"] {
+  margin-top: 0.15rem;
+  accent-color: #43a047;
+  flex-shrink: 0;
+}
+
+.hitl-option-content {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+}
+
+.hitl-option-label {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--text);
+}
+
+.hitl-option-desc {
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  line-height: 1.4;
+}
+
+.hitl-textarea {
+  width: 100%;
+  min-height: 100px;
+  padding: 0.65rem 0.75rem;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  background: #fff;
+  color: var(--text);
+  font-size: 0.88rem;
+  line-height: 1.55;
+  resize: vertical;
+  box-sizing: border-box;
+  font-family: inherit;
+}
+
+.hitl-textarea:focus {
+  outline: none;
+  border-color: #43a047;
+  box-shadow: 0 0 0 2px rgba(67, 160, 71, 0.15);
+}
+
+.hitl-attachments {
+  display: flex;
+  flex-direction: column;
+  gap: 0.45rem;
+}
+
+.hitl-attachment-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  min-height: 0;
+}
+
+.attachment-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+  padding: 0.25rem 0.6rem;
+  background: #e8f5e9;
+  border: 1px solid #c8e6c9;
+  border-radius: 999px;
+  font-size: 0.78rem;
+  color: #2e7d32;
+}
+
+.attachment-chip-name {
+  max-width: 160px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.attachment-chip-remove {
+  flex-shrink: 0;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  padding: 0 0.15rem;
+  font-size: 1rem;
+  line-height: 1;
+  color: #2e7d32;
+  border-radius: 4px;
+  transition: background 0.15s;
+}
+
+.attachment-chip-remove:hover {
+  background: rgba(46, 125, 50, 0.12);
+  color: #1b5e20;
+}
+
+.hitl-upload-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  padding: 0.4rem 0.85rem;
+  border: 1px dashed var(--border);
+  border-radius: var(--radius-sm);
+  background: #fafafa;
+  color: var(--text-muted);
+  font-size: 0.82rem;
+  cursor: pointer;
+  transition: border-color 0.15s, color 0.15s;
+  width: fit-content;
+}
+
+.hitl-upload-btn:hover {
+  border-color: #43a047;
+  color: #43a047;
+}
+
+.hitl-actions {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 0.6rem;
+  padding-top: 0.25rem;
+  border-top: 1px solid var(--border);
+}
+
+.hitl-hint {
+  width: 100%;
+  margin: 0;
+  font-size: 0.82rem;
+  color: #e53935;
+  text-align: left;
+}
+
+.btn-submit {
+  padding: 0.55rem 1.25rem;
+  border: none;
+  border-radius: var(--radius-sm);
+  background: #43a047;
+  color: #fff;
+  font-size: 0.88rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.15s;
+}
+
+.btn-submit:hover {
+  background: #388e3c;
+}
+
+.btn-submit:disabled {
+  background: #a5d6a7;
+  cursor: not-allowed;
+}

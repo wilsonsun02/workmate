@@ -1,0 +1,26 @@
+{
+  "enabled": true,
+  "channels": [
+    "wechat",
+    "wechat_work"
+  ],
+  "tool_channel_mapping": {
+    "MCPFilesystem_send_wechat_message": "wechat",
+    "MCPFilesystem_send_wechat_file": "wechat"
+  },
+  "keywords_blacklist": [
+    "财务报表",
+    "内部考核",
+    "薪酬"
+  ],
+  "custom_rules": [
+    "不得向客户提及公司内部项目代号",
+    "不得发送包含员工个人信息的文件"
+  ],
+  "violation_action": "block",
+  "notify_owner": true,
+  "owner_notify_message": "【安全拦截通知】以下内容因违反保密要求已被拦截，请检查：{violations}",
+  "client_safe_message": "该回复经安全审查未通过，暂无法发送，请联系相关人员确认。",
+  "llm_review_enabled": true,
+  "llm_review_prompt_template": "你是一名严格的内容安全审查员。请根据以下保密规则，审查即将发送给客户的内容是否违规。\n\n## 保密规则\n{rules}\n\n## 待审查内容\n{content}\n\n## 审查要求\n1. 逐条对照保密规则，判断内容是否违反任何一条\n2. 如果违反，明确指出违反了哪条规则以及具体违规内容\n3. 如果没有违反，回复「通过」\n\n请输出JSON格式：\n{\"passed\": true/false, \"violations\": [\"违规项1\", \"违规项2\"]}"
+}

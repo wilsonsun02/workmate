@@ -1,0 +1,15 @@
+/* Import order convention:
+ * 1) base: tokens + reset + shared primitives
+ * 2) layout: page/frame structure
+ * 3) feature: domain UI blocks (chat, etc.)
+ * 4) modal: overlay/dialog styles (highest-level UI surfaces)
+ */
+@import url("./css/base.css");
+@import url("./css/layout.css");
+@import url("./css/chat.css");
+@import url("./css/modal.css");
+@import url("./css/hitl.css");
+@import url("./css/tasks.css");
+@import url("./css/collab.css");
+@import url("./css/knowledge.css");
+@import url("./css/contacts.css");

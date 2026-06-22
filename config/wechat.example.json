@@ -1,0 +1,8 @@
+{
+  "wechat_contacts": "File Transfer Assistant",
+  "owner_name": "YourName",
+  "alias_name": "Workmate",
+  "default_contact": "File Transfer Assistant",
+  "check_interval": 120,
+  "wechat_agent_base_url": "http://127.0.0.1:8009"
+}

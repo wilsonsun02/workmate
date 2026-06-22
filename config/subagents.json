@@ -1,0 +1,137 @@
+{
+  "subagents": [
+    {
+      "name": "wechat-agent",
+      "description": "WeChat automation: send/receive messages and files, read history, monitor unread contacts.",
+      "mcp_list": [
+        "MCPFilesystem_read_file",
+        "MCPFilesystem_write_file",
+        "MCPFilesystem_list_directory",
+        "MCPFilesystem_search_files",
+        "MCPFilesystem_get_file_info",
+        "MCPFilesystem_send_wechat_file",
+        "MCPFilesystem_send_wechat_message",
+        "MCPFilesystem_get_wechat_messages",
+        "MCPFilesystem_monitor_wechat_messages",
+        "MCPFilesystem_get_wechat_unread_contacts"
+      ],
+      "skills": [],
+      "system_prompt": "Handle WeChat automation only. Send to the correct contact, protect privacy, and return concise results.\n\nOutput rules:\n- Return final status only, not raw tool JSON.\n- Sends: confirm recipient and payload briefly.\n- Reads: summarize key points, not full chat logs.\n- Monitoring: return structured unread/unreplied stats."
+    },
+    {
+      "name": "document-agent",
+      "description": "Parse and analyze PDF/Word/Excel/Markdown documents; extract data and convert formats.",
+      "mcp_list": [
+        "MCPFilesystem_read_file",
+        "MCPFilesystem_write_file",
+        "MCPFilesystem_list_directory",
+        "MCPFilesystem_search_files",
+        "MCPFilesystem_grep_files",
+        "MCPFilesystem_edit_file",
+        "MCPFilesystem_get_file_info",
+        "MCPFilesystem_parse_file_2_md",
+        "MCPFilesystem_md_2_word",
+        "MCPFilesystem_md_2_pdf"
+      ],
+      "skills": [],
+      "system_prompt": "Parse office documents and extract high-value information.\n\nOutput rules:\n- Never return full original document text.\n- Prefer outline + key metrics + conclusions.\n- Use Markdown lists/tables for extracted facts."
+    },
+    {
+      "name": "data-search-agent",
+      "description": "Research and report writing via bound skills; persist outputs with filesystem tools.",
+      "mcp_list": [
+        "MCPFilesystem_read_file",
+        "MCPFilesystem_write_file",
+        "MCPFilesystem_list_directory",
+        "MCPFilesystem_search_files",
+        "MCPFilesystem_grep_files",
+        "MCPFilesystem_edit_file",
+        "MCPFilesystem_get_file_info"
+      ],
+      "skills": ["report-writer", "outline-writing", "hot-news-briefs"],
+      "system_prompt": "Use bound skills and filesystem tools to research, draft, and save reports.\n\nOutput rules:\n- Organize findings by theme with source attribution.\n- Lead with an executive summary.\n- Add remote MCP search tools in mcp_list when your deployment enables them."
+    },
+    {
+      "name": "browser-automation-agent",
+      "description": "Browser automation and web scraping via Playwright/crawl MCP servers.",
+      "mcp_list": [
+        "MCPFilesystem_read_file",
+        "MCPFilesystem_write_file",
+        "MCPFilesystem_list_directory",
+        "MCPFilesystem_get_file_info",
+        "crawl_mcp_crawl_wechat_article",
+        "playwright_mcp_browser_navigate",
+        "playwright_mcp_browser_snapshot",
+        "playwright_mcp_browser_click",
+        "playwright_mcp_browser_type",
+        "playwright_mcp_browser_screenshot",
+        "playwright_mcp_browser_wait_for"
+      ],
+      "skills": [],
+      "system_prompt": "Automate browsers and scrape web content efficiently.\n\nTool preference:\n- crawl_mcp for WeChat articles and static pages.\n- playwright_mcp for interactive pages (login, click, fill, screenshot).\n\nOutput rules:\n- Return extracted content or success/failure, not raw HTML.\n- Report captcha/anti-bot blocks clearly and briefly."
+    },
+    {
+      "name": "ppt-agent",
+      "description": "Plan, generate, and assemble presentation files.",
+      "mcp_list": [
+        "MCPFilesystem_read_file",
+        "MCPFilesystem_write_file",
+        "MCPFilesystem_list_directory",
+        "MCPFilesystem_get_file_info",
+        "MCPFilesystem_generate_ppt_outline",
+        "MCPFilesystem_generate_ppt_image",
+        "MCPFilesystem_create_ppt_from_images",
+        "MCPFilesystem_send_wechat_file"
+      ],
+      "skills": [],
+      "system_prompt": "Create PPT deliverables end to end.\n\nWorkflow:\n1. generate_ppt_outline\n2. generate_ppt_image for key slides (optional)\n3. create_ppt_from_images to build the .pptx\n\nOutput rules:\n- Return the final .pptx path, page count, and chapter titles.\n- Do not dump every slide verbatim."
+    },
+    {
+      "name": "media-agent",
+      "description": "Generate and edit images, audio, and video assets.",
+      "mcp_list": [
+        "MCPFilesystem_read_file",
+        "MCPFilesystem_write_file",
+        "MCPFilesystem_list_directory",
+        "MCPFilesystem_get_file_info",
+        "MCPFilesystem_generate_video_storyboard",
+        "MCPFilesystem_generate_image",
+        "MCPFilesystem_modify_image",
+        "MCPFilesystem_submit_video_task",
+        "MCPFilesystem_query_video_task",
+        "MCPFilesystem_add_subtitle_and_audio",
+        "MCPFilesystem_merge_videos",
+        "MCPFilesystem_generate_audio",
+        "MCPFilesystem_send_wechat_file"
+      ],
+      "skills": [],
+      "system_prompt": "Produce multimedia assets and track async jobs.\n\nVideo workflow:\n1. submit_video_task\n2. poll query_video_task until done\n3. optional add_subtitle_and_audio / merge_videos\n\nOutput rules:\n- List final file paths and task IDs when relevant.\n- Report only completion or clear errors, not polling noise."
+    },
+    {
+      "name": "enterprise-info-agent",
+      "description": "Enterprise due diligence via Qichacha MCP tools (enable qcc_* servers in mcp_servers.json).",
+      "mcp_list": [
+        "MCPFilesystem_read_file",
+        "MCPFilesystem_write_file",
+        "MCPFilesystem_list_directory",
+        "MCPFilesystem_edit_file",
+        "MCPFilesystem_get_file_info",
+        "qcc_basic_FuzzySearch",
+        "qcc_basic_RegistrationInfo",
+        "qcc_basic_ChangeRecords",
+        "qcc_basic_UltimateController",
+        "qcc_basic_CompanyProfile",
+        "qcc_basic_CompanyNews",
+        "qcc_basic_ShareholderInfo",
+        "qcc_risk_DishonestEntityCheck",
+        "qcc_risk_JudgmentWenspan",
+        "qcc_risk_BusinessException",
+        "qcc_risk_AdministrativePenalty",
+        "qcc_intellectual_property_TrademarkSearch",
+        "qcc_intellectual_property_PatentSearch"
+      ],
+      "skills": ["enterprise-risk-report"],
+      "system_prompt": "Run enterprise background and risk research with Qichacha tools.\n\nWorkflow:\n1. FuzzySearch to resolve the exact company name.\n2. Pull registration, risk, and IP data as needed.\n\nOutput rules:\n- Return structured analysis, not raw JSON dumps.\n- Highlight risk items prominently.\n- Summarize long change/litigation lists to top recent items."
+    }
+  ]
+}

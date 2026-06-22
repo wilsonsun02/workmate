@@ -1,0 +1,104 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+MANIFEST
+.pytest_cache/
+.coverage
+htmlcov/
+.tox/
+.nox/
+
+# Virtual Environment
+.venv/
+venv/
+ENV/
+env/
+.venv_linux/
+
+# IDE
+.idea/
+.vscode/
+.vsconce/
+*.swp
+*.swo
+*~
+
+# Project specific
+.claude/
+node_modules/
+checkpoints/
+large_tool_results/
+output/
+
+# OS
+.DS_Store
+Thumbs.db
+
+AGENTS.md
+
+.env
+.env.admin
+.env.*
+!.env.example
+!.env.*.example
+
+.trae
+.cursor
+
+desktop_temp/
+scheduled_tasks.json
+task_executions.json
+desktop_scheduler_feed.json
+.playwright-mcp/
+workspace/
+logs/
+.agents/
+skills-lock.json
+package*.zip
+.knowledge/
+admin_web_v/.turbo/
+admin_web_v/**/dist/
+admin_web_v/**/coverage/
+admin_web_v/**/*.tsbuildinfo
+admin_web_v/.env
+admin_web_v/.env.local
+admin_web_v/.env.*.local
+collab_uploads/
+*.msi
+
+# Runtime caches
+.template_cache/
+
+# Local user/runtime configs
+config/wechat.json
+config/video_index_*.json
+config/skills_config.json
+config/content_security_rules.json
+tools/config/
+
+# WeChat test media (keep scripts only)
+tools/wechat_attachments/*
+
+# Skill outputs
+skills/
+
+# Test artifacts
+tests/

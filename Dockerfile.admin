@@ -1,0 +1,48 @@
+FROM python:3.12-slim-bookworm
+
+ARG PIP_INDEX_URL=https://pypi.org/simple
+
+ENV PYTHONDONTWRITEBYTECODE=1 \
+    PYTHONUNBUFFERED=1 \
+    PIP_DISABLE_PIP_VERSION_CHECK=1 \
+    PIP_NO_CACHE_DIR=1 \
+    PIP_ROOT_USER_ACTION=ignore \
+    PIP_DEFAULT_TIMEOUT=120 \
+    BASE_DIR=/app \
+    PYTHONPATH=/app \
+    WORKMATE_ADMIN_HOST=0.0.0.0 \
+    WORKMATE_ADMIN_PORT=8010
+
+WORKDIR /app
+
+COPY requirements.admin.txt /tmp/requirements.admin.txt
+
+RUN pip install \
+        --no-cache-dir \
+        --no-compile \
+        --prefer-binary \
+        --progress-bar off \
+        --retries 5 \
+        --timeout 120 \
+        -r /tmp/requirements.admin.txt \
+    && rm -f /tmp/requirements.admin.txt \
+    && find /usr/local/lib/python3.12 -depth \
+        \( -type d \( -name "__pycache__" -o -name "tests" -o -name "test" \) \) \
+        -exec rm -rf '{}' + \
+    && find /usr/local/lib/python3.12 -type f \
+        \( -name "*.pyc" -o -name "*.pyo" \) -delete
+
+RUN mkdir -p /app/config /app/logs /app/skills /app/workspace
+
+COPY admin_serve.py /app/admin_serve.py
+COPY admin_api /app/admin_api
+COPY workflow/config.py workflow/logging_setup.py /app/workflow/
+COPY config/mcp_operable_dirs.json /app/config/mcp_operable_dirs.json
+
+RUN find /app -depth \
+        \( -type d \( -name "__pycache__" -o -name ".pytest_cache" -o -name ".mypy_cache" \) \) \
+        -exec rm -rf '{}' +
+
+EXPOSE 8010
+
+CMD ["uvicorn", "admin_serve:app", "--host", "0.0.0.0", "--port", "8010"]

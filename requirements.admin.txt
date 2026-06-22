@@ -1,0 +1,16 @@
+# Minimal dependencies for the standalone admin API container.
+# Keep this list separate from requirements.txt so the admin image does not
+# install non-admin LLM, document, media, scheduler, or Windows automation stacks.
+fastapi==0.135.1
+uvicorn==0.41.0
+websockets==16.0
+loguru==0.7.3
+pymysql==1.1.2
+python-dotenv==1.2.2
+httpx==0.28.1
+requests==2.32.5
+pyyaml==6.0.3
+redis==7.4.0
+bcrypt==5.0.0
+oss2==2.19.1
+python-multipart==0.0.22

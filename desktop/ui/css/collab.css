@@ -1,0 +1,404 @@
+.collab-section-badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 1.1rem;
+  height: 1.1rem;
+  padding: 0 0.35rem;
+  flex-shrink: 0;
+  border-radius: 999px;
+  background: #e53935;
+  color: #fff;
+  font-size: 0.65rem;
+  font-weight: 600;
+  line-height: 1;
+  vertical-align: middle;
+}
+
+.collab-new-badge {
+  flex-shrink: 0;
+  margin-left: 0.35rem;
+  padding: 0.1rem 0.35rem;
+  border-radius: 4px;
+  background: #e53935;
+  color: #fff;
+  font-size: 0.62rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  line-height: 1.2;
+}
+
+.collab-row-title-line {
+  display: flex;
+  align-items: center;
+  min-width: 0;
+}
+
+.collab-row-title-line .history-item-title {
+  flex: 1;
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.collab-row-meta {
+  font-size: 0.72rem;
+  color: var(--text-muted);
+  margin-top: 0.15rem;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.collab-history-main {
+  width: 100%;
+}
+
+.collab-root {
+  flex: 1;
+  overflow: auto;
+  padding: 1.25rem 1.5rem 2rem;
+}
+
+.collab-detail-empty {
+  color: var(--text-muted);
+  font-size: 0.9rem;
+  padding: 2rem 0;
+}
+
+.collab-detail-loading {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 12rem;
+  gap: 0.75rem;
+  color: var(--text-muted);
+  font-size: 0.88rem;
+}
+
+.collab-detail-spinner {
+  width: 32px;
+  height: 32px;
+  border: 3px solid #e5e6ea;
+  border-top-color: #2d2d32;
+  border-radius: 50%;
+  animation: boot-spin 0.95s linear infinite;
+}
+
+.collab-detail-header {
+  margin-bottom: 1.25rem;
+}
+
+.collab-detail-title {
+  font-size: 1.15rem;
+  font-weight: 600;
+  margin: 0 0 0.35rem;
+}
+
+.collab-detail-meta,
+.collab-detail-desc,
+.collab-detail-times {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  margin: 0.25rem 0 0;
+}
+
+.collab-detail-times {
+  font-size: 0.8rem;
+}
+
+.collab-timeline {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.collab-timeline-step {
+  border: 1px solid var(--border, #e5e5ea);
+  border-radius: var(--radius-sm, 8px);
+  padding: 0.85rem 1rem;
+  background: #fafafa;
+}
+
+.collab-timeline-step.collab-timeline-current {
+  border-color: #5b8def;
+  background: #f0f5ff;
+}
+
+.collab-step-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.5rem;
+  margin-bottom: 0.35rem;
+}
+
+.collab-step-index {
+  font-weight: 600;
+  font-size: 0.88rem;
+}
+
+.collab-step-status {
+  font-size: 0.75rem;
+  color: var(--text-muted);
+}
+
+.collab-step-who {
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  margin-bottom: 0.35rem;
+}
+
+.collab-step-times {
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  margin-bottom: 0.35rem;
+}
+
+.collab-step-prompt,
+.collab-step-result,
+.collab-step-reject,
+.collab-step-relay {
+  font-size: 0.82rem;
+  margin-top: 0.35rem;
+  white-space: pre-wrap;
+  word-break: break-word;
+}
+
+.collab-step-reject {
+  color: #c62828;
+}
+
+.collab-step-running .collab-step-status {
+  color: #1565c0;
+}
+
+.collab-step-completed .collab-step-status {
+  color: #2e7d32;
+}
+
+.collab-step-rejected .collab-step-status {
+  color: #c62828;
+}
+
+.collab-step-attachments {
+  margin-top: 0.5rem;
+  padding-top: 0.5rem;
+  border-top: 1px dashed var(--border, #e5e5ea);
+}
+
+.collab-step-attachments-label,
+.collab-attachments-title {
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: var(--text-muted);
+  margin: 0 0 0.4rem;
+}
+
+.collab-attachments-section {
+  margin-top: 1.25rem;
+  padding-top: 1rem;
+  border-top: 1px solid var(--border, #e5e5ea);
+}
+
+.collab-attachments-title {
+  font-size: 0.88rem;
+}
+
+.collab-attachment-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+.collab-attachment-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.65rem;
+  padding: 0.45rem 0.55rem;
+  border-radius: 6px;
+  background: #fff;
+  border: 1px solid var(--border, #e8e8ed);
+}
+
+.collab-attachment-info {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.1rem;
+}
+
+.collab-attachment-name {
+  font-size: 0.82rem;
+  font-weight: 500;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.collab-attachment-meta {
+  font-size: 0.72rem;
+  color: var(--text-muted);
+}
+
+.collab-attachment-download {
+  flex-shrink: 0;
+  font-size: 0.75rem;
+  padding: 0.25rem 0.65rem;
+  border-radius: 6px;
+  border: 1px solid var(--border, #d0d0d8);
+  background: #f5f5f8;
+  color: #2d2d32;
+  cursor: pointer;
+}
+
+.collab-attachment-download:hover:not(:disabled) {
+  background: #ebebf0;
+  border-color: #b8b8c4;
+}
+
+.collab-attachment-download:disabled {
+  opacity: 0.65;
+  cursor: wait;
+}
+
+.collab-attachment-actions {
+  display: flex;
+  flex-shrink: 0;
+  align-items: center;
+  gap: 0.35rem;
+}
+
+.collab-attachment-delete {
+  flex-shrink: 0;
+  font-size: 0.75rem;
+  padding: 0.25rem 0.65rem;
+  border-radius: 6px;
+  border: 1px solid #e8b4b4;
+  background: #fff5f5;
+  color: #c62828;
+  cursor: pointer;
+}
+
+.collab-attachment-delete:hover:not(:disabled) {
+  background: #ffe8e8;
+}
+
+.collab-attachment-empty {
+  font-size: 0.78rem;
+  color: var(--text-muted);
+  padding: 0.25rem 0.1rem;
+  list-style: none;
+}
+
+.collab-attachment-upload-row {
+  margin: 0.35rem 0 0.5rem;
+}
+
+.collab-attachment-upload-input.hidden {
+  display: none;
+}
+
+.collab-attachment-upload-btn {
+  font-size: 0.75rem;
+  padding: 0.25rem 0.75rem;
+  border-radius: 6px;
+  border: 1px solid #5b8def;
+  background: #f0f5ff;
+  color: #1565c0;
+  cursor: pointer;
+}
+
+.collab-attachment-upload-btn:hover:not(:disabled) {
+  background: #e3edff;
+}
+
+.collab-attachment-upload-btn:disabled {
+  opacity: 0.65;
+  cursor: wait;
+}
+
+.collab-step-complete-row {
+  margin-top: 10px;
+  padding-top: 10px;
+  border-top: 1px solid var(--border-subtle, rgba(0, 0, 0, 0.08));
+}
+
+.collab-step-complete-hint {
+  margin: 0 0 8px;
+  font-size: 12px;
+  line-height: 1.45;
+  color: var(--text-muted, #666);
+}
+
+.collab-step-complete-btn {
+  padding: 6px 14px;
+  font-size: 13px;
+  border-radius: 6px;
+  border: 1px solid #1565c0;
+  background: #1565c0;
+  color: #fff;
+  cursor: pointer;
+}
+
+.collab-step-complete-btn:hover:not(:disabled) {
+  filter: brightness(1.05);
+}
+
+.collab-step-complete-btn:disabled {
+  opacity: 0.65;
+  cursor: not-allowed;
+}
+
+.collab-step-complete-btn.is-busy:disabled {
+  cursor: wait;
+}
+
+.collab-inbound-sync-note {
+  font-size: 0.8rem;
+  color: #1565c0;
+  background: #f0f5ff;
+  border: 1px solid #c5d9f7;
+  border-radius: 8px;
+  padding: 0.5rem 0.75rem;
+  margin-bottom: 1rem;
+}
+
+.collab-detail-actions {
+  margin-top: 0.75rem;
+}
+
+.collab-chain-delete-btn {
+  font-size: 0.8rem;
+  padding: 0.35rem 0.85rem;
+  border-radius: 6px;
+  border: 1px solid #e8b4b4;
+  background: #fff5f5;
+  color: #c62828;
+  cursor: pointer;
+}
+
+.collab-chain-delete-btn:hover:not(:disabled) {
+  background: #ffe8e8;
+}
+
+.collab-chain-delete-btn:disabled {
+  opacity: 0.65;
+  cursor: wait;
+}
+
+.collab-detail-hint {
+  font-size: 0.78rem;
+  color: var(--text-muted);
+  margin: 0.5rem 0 0;
+}

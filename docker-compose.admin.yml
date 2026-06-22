@@ -1,0 +1,39 @@
+name: ${WORKMATE_COMPOSE_PROJECT_NAME:-workmate-admin}
+
+services:
+  admin:
+    build:
+      context: .
+      dockerfile: Dockerfile.admin
+      args:
+        PIP_INDEX_URL: ${PIP_INDEX_URL:-https://pypi.org/simple}
+    image: ${WORKMATE_ADMIN_IMAGE:-workmate-admin:local}
+    container_name: ${WORKMATE_ADMIN_CONTAINER_NAME:-workmate-admin}
+    restart: ${WORKMATE_RESTART_POLICY:-unless-stopped}
+    env_file:
+      - ${WORKMATE_ENV_FILE:-.env}
+    environment:
+      WORKMATE_ADMIN_HOST: ${WORKMATE_ADMIN_HOST:-0.0.0.0}
+      WORKMATE_ADMIN_PORT: ${WORKMATE_ADMIN_PORT:-8010}
+      WORKMATE_ADMIN_LOG_LEVEL: ${WORKMATE_ADMIN_LOG_LEVEL:-INFO}
+      WORKMATE_LOG_STDOUT: ${WORKMATE_LOG_STDOUT:-true}
+      BASE_DIR: ${WORKMATE_ADMIN_BASE_DIR:-/app}
+    volumes:
+      - ${WORKMATE_SKILLS_DIR:-./skills}:/app/skills
+      - ${WORKMATE_MCP_OPERABLE_DIRS_CONFIG:-./config/mcp_operable_dirs.json}:/app/config/mcp_operable_dirs.json:ro
+    ports:
+      - "${WORKMATE_ADMIN_PORT_HOST:-8010}:${WORKMATE_ADMIN_PORT:-8010}"
+
+  admin-web:
+    build:
+      context: ./admin_web_v
+      dockerfile: apps/web-ele/Dockerfile
+    image: ${WORKMATE_ADMIN_WEB_IMAGE:-workmate-admin-web:local}
+    container_name: ${WORKMATE_ADMIN_WEB_CONTAINER_NAME:-workmate-admin-web}
+    restart: ${WORKMATE_RESTART_POLICY:-unless-stopped}
+    environment:
+      VITE_ADMIN_API_BASE: ${VITE_ADMIN_API_BASE:-http://localhost:8010/api/admin}
+    depends_on:
+      - admin
+    ports:
+      - "${WORKMATE_ADMIN_WEB_PORT_HOST:-8080}:80"

@@ -1,0 +1,17 @@
+[
+  {
+    "task_id": "task_example001",
+    "username": "your_username",
+    "contact": "File Transfer Assistant",
+    "task_name": "Daily news brief",
+    "task_type": "custom",
+    "task_description": "Send a daily news summary every morning.",
+    "task_prompt": "Search today's hot news and send me a brief summary.",
+    "cron_expression": "0 9 * * *",
+    "next_run_time": null,
+    "last_run_time": null,
+    "status": "active",
+    "created_at": "2026-06-18T09:00:00",
+    "updated_at": "2026-06-18T09:00:00"
+  }
+]

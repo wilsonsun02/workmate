@@ -1,0 +1,83 @@
+[
+  {
+    "server_name": "MCPFilesystem",
+    "server_description": "Local filesystem, document, WeChat automation tools.",
+    "is_load": true,
+    "skills": "",
+    "server_config": {
+      "transport": "stdio",
+      "command": "uv",
+      "args": [
+        "--directory",
+        "${BASE_DIR}",
+        "run",
+        "run_server.py"
+      ],
+      "env": {}
+    },
+    "tools": [
+      {
+        "tool_name": "read_file",
+        "tool_description": "Read a file from allowed directories.",
+        "is_load": true
+      },
+      {
+        "tool_name": "write_file",
+        "tool_description": "Write content to a file in allowed directories.",
+        "is_load": true
+      },
+      {
+        "tool_name": "send_wechat_message",
+        "tool_description": "Send a WeChat message to a contact.",
+        "is_load": false
+      }
+    ]
+  },
+  {
+    "server_name": "remote_http_mcp",
+    "server_description": "Example remote MCP over streamable HTTP. Replace URL and API key.",
+    "is_load": false,
+    "skills": "",
+    "server_config": {
+      "transport": "streamable_http",
+      "url": "http://127.0.0.1:8012/mcp",
+      "headers": {},
+      "env": {}
+    },
+    "tools": [
+      {
+        "tool_name": "example_tool",
+        "tool_description": "Replace with tools exposed by your remote MCP server.",
+        "is_load": false
+      }
+    ]
+  },
+  {
+    "server_name": "playwright_mcp",
+    "server_description": "Browser automation via npx @playwright/mcp.",
+    "is_load": false,
+    "skills": "",
+    "server_config": {
+      "transport": "stdio",
+      "command": "npx",
+      "args": [
+        "-y",
+        "@playwright/mcp",
+        "--headless",
+        "--no-sandbox"
+      ]
+    },
+    "tools": [
+      {
+        "tool_name": "browser_navigate",
+        "tool_description": "Navigate to a URL.",
+        "is_load": true
+      },
+      {
+        "tool_name": "browser_snapshot",
+        "tool_description": "Capture page accessibility snapshot.",
+        "is_load": true
+      }
+    ]
+  }
+]

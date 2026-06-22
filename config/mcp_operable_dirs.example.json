@@ -1,0 +1,6 @@
+{
+  "operable_dirs": [
+    "${BASE_DIR}/skills",
+    "${BASE_DIR}/workspace"
+  ]
+}

@@ -1,0 +1,14 @@
+{
+  "name": "@vben/turbo-run",
+  "version": "5.7.0",
+  "private": true,
+  "license": "MIT",
+  "type": "module",
+  "bin": {
+    "turbo-run": "./bin/turbo-run.mjs"
+  },
+  "dependencies": {
+    "@clack/prompts": "catalog:",
+    "cac": "catalog:"
+  }
+}

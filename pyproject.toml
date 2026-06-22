@@ -1,0 +1,70 @@
+[project]
+name = "workmate"
+version = "0.1.0"
+description = "LLM-driven agent platform with FastAPI, LangGraph, MCP, desktop client, and admin console"
+requires-python = ">=3.12"
+dependencies = [
+    "runloop-api-client",
+    "langchain-runloop",
+    "deepagents",
+    "fastapi>=0.128.0",
+    "langchain>=1.2.0",
+    "langchain-core>=1.2.5",
+    "langchain-mcp-adapters>=0.2.1",
+    "langchain-openai>=1.1.6",
+    "langchain-deepseek>=0.1.0",
+    "langgraph>=1.0.5",
+    "langgraph-checkpoint-sqlite>=2.0.0",
+    "langserve>=0.3.3",
+    "mysql-connector-python>=9.5.0",
+    "pandas>=2.3.3",
+    "sqlparse>=0.5.5",
+    "starlette>=0.50.0",
+    "uvicorn>=0.30.0",
+    "apscheduler>=3.10.0",
+    "fastmcp>=0.4.0",
+    "typer>=0.9.0",
+    "typing-extensions>=4.6.0",
+    "httpx>=0.28.1",
+    "beautifulsoup4>=4.12.0",
+    "python-dotenv>=1.0.0",
+    "rich>=13.0.0",
+    "pydantic>=2.10.0",
+    "pydantic-settings>=2.0.0",
+    "pyyaml>=6.0.0",
+    "requests>=2.31.0",
+    "moviepy>=1.0.0",
+    "Pillow>=10.0.0",
+    "python-docx>=1.0.0",
+    "python-pptx>=0.6.0",
+    "pdfplumber>=0.10.0",
+    "aiofiles>=23.0.0",
+    "psutil>=5.9.0",
+    "pynput>=1.7.6",
+    "pywinauto>=0.6.8",
+    "pycryptodome>=3.20.0",
+    "defusedxml>=0.7.1",
+    "websockets>=12.0",
+    "python-socks[asyncio]>=2.0.0",
+    "imageio-ffmpeg>=0.6.0",
+    "redis>=7.3.0",
+    "bcrypt>=5.0.0",
+    "oss2>=2.19.1",
+    "loguru>=0.7.3",
+]
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["config*", "desktop*", "output*", "prompt*", "skills*", "template*", "scheduler*", "checkpoints*", "mcp_filesystem*"]
+exclude = ["node_modules*", "large_tool_results*", "tests*", "*.tests"]
+
+[dependency-groups]
+dev = [
+    "pyinstaller>=6.19.0",
+    "pytest>=8.0.0",
+    "pytest-asyncio>=0.23.0",
+]
+desktop = [
+    "PyQt6>=6.6.0",
+    "PyQt6-WebEngine>=6.6.0",
+]

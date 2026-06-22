@@ -1,0 +1,104 @@
+{
+  "skills": {
+    "statement-template-converter": {
+      "description": "将 Excel 或图片中的对账/物流表格解析并映射为企业标准字段（日期、装货地、卸货地、重量、运输费、其他费用、总金额、车牌号、开票地），支持导出标准 Excel 或写入 MySQL。只要用户提到对账单标准化、物流费明细、截图/照片表格转结构化、字段统一、入库或导出标准表，就必须使用本 skill：在项目根目录通过 `uv run python`（或已激活的 venv）执行 `skills/statement-template-converter/scripts/convert.py`，不要凭对话手写抽取整张表或另造脚本逻辑；也不要为本任务新增或扩展 MCP 工具。",
+      "enabled": true
+    },
+    "tencent-news": {
+      "description": "7×24 新闻资讯搜索工具，聚焦中国国内信息和国际热点。支持新闻搜索，包括热点新闻、早报晚报、实时资讯、领域新闻和天气信息查询。当用户需要搜索新闻、新闻热榜、新闻早晚报、订阅新闻推送、获取相关新闻资讯和查询天气信息时使用。",
+      "enabled": false
+    },
+    "video-generate": {
+      "description": "根据用户需求和文本内容自动制作短视频的专业技能。用于根据用户提供的文本内容生成视频分镜、生成首帧图片、生成配音音频、生成视频片段，并最终合成完整视频。当用户要求制作视频、根据文本生成视频、根据内容制作短视频时触发此技能。",
+      "enabled": true
+    },
+    "wechat-mode": {
+      "description": "微信聊天模式管理技能。根据不同的微信联系人或群聊，自动切换对应的聊天模式进行对话。\n用途：当调用 send_wechat_message 或 get_wechat_unread_contacts 等微信相关工具时，\n需要先阅读此技能，找到 references/ 目录下对应联系人的 Markdown 文件（{chat_name}.md），\n然后按照该文件描述的聊天模式（身份、关系、语气、风格、示例）来生成回复内容。\n本技能具备自我更新能力：与联系人对话结束后，可以总结新获取的信息（背景、经历、偏好等），\n通过 MCPFilesystem_edit_file 等工具自动更新到 references/{chat_name}.md 的「对话历史与更新日志」中。\n触发条件（任一满足即触发）：\n- 调用 send_wechat_message 发送微信消息\n- 调用 get_wechat_unread_contacts 获取未读消息后需要回复\n- 执行定时任务或协同任务中涉及微信消息收发\n- 用户提到「微信聊天」「微信回复」「给XX发微信」等关键词",
+      "enabled": true
+    },
+    "weekly-image-report": {
+      "description": "生成三图直传（header/item/footer）拼接的图片周报。支持 items 动态条数、长正文自动续卡、header/footer 文案渲染，并输出单张长图 PNG。",
+      "enabled": true
+    },
+    "ppt-writer": {
+      "description": "根据用户需求和文本内容自动制作PPT的专业技能。可以用于根据用户提供的文本内容生成PPT演示文稿，包括：生成PPT大纲、逐页生成PPT图片、合成完整PPT文件。当用户要求制作PPT、根据文本生成PPT、根据内容制作演示文稿时触发此技能。",
+      "enabled": true
+    },
+    "extract-data": {
+      "description": "从图片中提取报价数据并存储到数据库中。当用户要求提取报价数据、从图片中提取数据、识别图片中的表格数据、将图片转为结构化数据时触发此技能。",
+      "enabled": true
+    },
+    "canvas-design": {
+      "description": "Create beautiful visual art in .png and .pdf documents using design philosophy. You should use this skill when the user asks to create a poster, piece of art, design, or other static piece. Create original visual designs, never copying existing artists' work to avoid copyright violations. cn",
+      "enabled": false
+    },
+    "report-writer": {
+      "description": "专业的分析报告与复杂文档编写助手。用于编写大宗商品市场分析报告、行业研究报告、深度分析文档等需要大量数据检索、图表生成、多工具协同的复杂写作任务。当用户要求写分析报告、深度研究文档、市场分析时触发此技能。",
+      "enabled": true
+    },
+    "future-monitor": {
+      "description": "自动化操作同花顺期货通软件，查询期货合约的各周期K线及分时线行情，解析分析行情走势。",
+      "enabled": true
+    },
+    "report-operate": {
+      "description": "自动化操作 AI Report 平台生成市场分析报告。首先登录平台（https://www.ai-report.com.cn/login），然后进入分析报告页面（https://www.ai-report.com.cn/analysis_report），选择指定的报告模板（如\"动力煤市场分析.md\"、\"环球市场点评.md\"等），修改各个工具的操作计划日期（headlines_summary, global_market_intelligence, macro_data_retriever, data_retriever, short_period_retriever），确认计划并等待报告生成，最后保存为 DOCX 和知识库，并下载到本地。",
+      "enabled": true
+    },
+    "frontend-design": {
+      "description": "Create distinctive, production-grade frontend interfaces with high design quality. Invoke when user asks to build web components, pages, apps, or style UIs. Avoids generic AI aesthetics.",
+      "enabled": false
+    },
+    "hot-news-briefs": {
+      "description": "Real-time retrieval of trending news (Toutiao, Douyin) and stock market data (AkShare) to generate a comprehensive news brief. Invoke when user asks for 'hot news', 'daily brief', or 'news summary'.",
+      "enabled": true
+    },
+    "outline-writing": {
+      "description": "专业的报告提纲撰写技能。根据用户的输入信息、历史对话信息及参考模板，生成结构清晰、逻辑严谨的分析报告提纲。当用户要求写报告提纲、列报告大纲、撰写报告结构时触发此技能。",
+      "enabled": true
+    },
+    "get-market-price": {
+      "description": "获取多个市场的当天及历史报价信息，包括百川盈孚、中国煤炭资源网、华诚资讯和铁合金网，并存储到数据库中。",
+      "enabled": false
+    },
+    "contract-comparison": {
+      "description": "对两份合同文件进行 OCR 识别并逐条款比对，找出实质性差异，返回结构化对比结果（是否同一合同、差异条款列表等），由远程合同对比服务提供能力。",
+      "enabled": true
+    },
+    "enterprise-risk-report": {
+      "description": "Generate a full enterprise risk report for a user-specified company using the \"兆企风险报告\" template. Use whenever the user asks for 企业风险报告、兆企风险报告、企查查风险报告、尽职调查式企业报告、或需要按固定模板从 QCC/交易数据/实地巡检/联网搜索汇总，输出 Markdown 并用管理端 report-word-rich（兆企风控报告模板）转 Word。 Trigger even if they only give a company name and \"写一份风险报告\" — the company name is always taken from the user message.",
+      "enabled": true
+    },
+    "collab-report-writer": {
+      "description": "创建多员工协同的市场分析报告撰写任务。自动查找合适的协作者（数据分析师、报告撰写师）， 搭建\"数据采集→数据分析→报告撰写\"协同链，将成果通过管理端路由转发。 当用户要求\"多人协同写报告\"\"分工做市场分析\"\"找人一起做报告\"时触发此技能。",
+      "enabled": true
+    },
+    "hitl-demo": {
+      "description": "人机交互（HITL）功能演示技能。用于演示和测试在任务执行过程中暂停并等待用户确认、补充输入或上传附件的能力。当用户说\"测试人机交互\"、\"演示HITL\"或\"测试暂停确认\"时触发此技能。",
+      "enabled": false
+    },
+    "rich-analysis-report": {
+      "description": "Fetch the latest analysis report from an SMB/ZeroTier shared directory. Use when the user asks for the newest report from a network share.",
+      "enabled": false
+    },
+    "huashu-design": {
+      "description": "花叔Design（Huashu-Design）——用HTML做高保真原型、交互Demo、幻灯片、动画、设计变体探索+设计方向顾问+专家评审的一体化设计能力。HTML是工具不是媒介，根据任务embody不同专家（UX设计师/动画师/幻灯片设计师/原型师），避免web design tropes。触发词：做原型、设计Demo、交互原型、HTML演示、动画Demo、设计变体、hi-fi设计、UI mockup、prototype、设计探索、做个HTML页面、做个可视化、app原型、iOS原型、移动应用mockup、导出MP4、导出GIF、60fps视频、设计风格、设计方向、设计哲学、配色方案、视觉风格、推荐风格、选个风格、做个好看的、评审、好不好看、review this design、带解说的动画、解说视频、概念解释视频、长视频科普、配音动画、voiceover、narration、TTS+动画、5分钟讲清楚什么是XX。**主干能力**：Junior Designer工作流（先给假设+reasoning+placeholder再迭代）、反AI slop清单、React+Babel最佳实践、Tweaks变体切换、Speaker Notes演示、Starter Components（幻灯片外壳/变体画布/动画引擎/设备边框/解说Stage）、App原型专属守则（默认从Wikimedia/Met/Unsplash取真图、每台iPhone包AppPhone状态管理器可交互、交付前跑Playwright点击测试）、Playwright验证、HTML动画→MP4/GIF视频导出（25fps基础 + 60fps插帧 + palette优化GIF + 6首场景化BGM + 自动fade）、**带解说的长动画pipeline**（豆包TTS生人声+实测时长生timeline.json+NarrationStage驱动画面+ducking混音→交付HTML实播+发布MP4双形态；铁律：整片是一个连续的运动叙事，禁PowerPoint切换）。**需求模糊时的Fallback**：设计方向顾问模式——从5流派×20种设计哲学（Pentagram信息建筑/Field.io运动诗学/Kenya Hara东方极简/Sagmeister实验先锋等）推荐3个差异化方向，展示24个预制showcase（8场景×3风格），并行生成3个视觉Demo让用户选。**交付后可选**：专家级5维度评审（哲学一致性/视觉层级/细节执行/功能性/创新性各打10分+修复清单）。",
+      "enabled": true
+    },
+    "zhangxuefeng-perspective": {
+      "description": "",
+      "enabled": false
+    },
+    "rich-quote-assistant": {
+      "description": "Workmate 兆企供应链塑料原料交易助手。在用户需要获取今日塑料原料报价（PE、PP、PVC、PS、ABS）、生成报价表 HTML/图片、微信发送摘要、一键提单、审批流转、沟通记录或线上线下一体化交易时使用本 skill——即使用户只说「报价」「牌号」「提单」「审批」也应优先启用。",
+      "enabled": true
+    },
+    "rich-collab": {
+      "description": "创建多员工协同的订单/合同审批任务链（业务上传→销售主管→财务→法务），法务通过后系统自动建单。 当用户提到「协同订单」「合同审批流转」「销售财务法务审核」「找人一起走完订单流程」「上传合同走审批」时触发—— 即使未说 rich-collab 也应优先启用；与 collab-report-writer（报告协同）和 rich-quote-assistant（单人报价）区分。",
+      "enabled": true
+    },
+    "todo-management": {
+      "description": "待办事项（Todo）创建与管理技能。覆盖自然语言添加/查看/完成/取消/删除/修改待办、智能排程，以及与桌面端「待办事项」TAB 的数据一致性。当用户提及「待办 / 提醒 / todo / 添加待办 / 完成待办 / 删除待办 / 修改待办 / 取消待办 / 排程 / 智能编排 / 帮我记一下 / 记一笔事」时触发此技能。",
+      "enabled": true
+    }
+  }
+}

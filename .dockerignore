@@ -1,0 +1,60 @@
+.git
+.gitignore
+.idea
+.vscode
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.Python
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.DS_Store
+
+# Python 本地环境
+.venv/
+venv/
+env/
+
+# Node 本地构建产物与依赖
+node_modules/
+
+# 测试与临时文件
+tests/
+*.log
+conversation_history/
+large_tool_results/
+tmp/
+temp/
+
+# 本地运行态数据 / 数据库文件（镜像通过外部数据库连接，不打入本地数据）
+checkpoints/
+workflow/checkpoints/
+workspace/
+desktop_temp/
+output/
+logs/
+*.db
+*.db-*
+*.sqlite
+*.sqlite-*
+*.sqlite3
+*.sqlite3-*
+*.duckdb
+*.mdb
+
+# 本地配置/敏感信息
+.env
+.env.*
+
+# 打包产物与无关文件
+dist/
+build/
+*.spec
+debug.html
+
+# 文档与示例缓存（不影响后端服务启动）
+tools/wechat_attachments/
+skills/*/cache/
+.colima/
