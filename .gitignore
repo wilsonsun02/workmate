@@ -100,5 +100,5 @@ tools/wechat_attachments/*
 # Skill outputs
 skills/
 
-# Test artifacts
-tests/
+# Test artifacts — committed test source lives under tests/ (runtime cache only)
+tests/__pycache__/

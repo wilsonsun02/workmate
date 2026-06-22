@@ -68,3 +68,7 @@ desktop = [
     "PyQt6>=6.6.0",
     "PyQt6-WebEngine>=6.6.0",
 ]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+python_classes = ["Test*", "Describe*"]
